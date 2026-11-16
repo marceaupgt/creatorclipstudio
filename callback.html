@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creator Clip Studio · Connexion TikTok</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>Connexion TikTok</h1>
+<p id="msg">Retour vers Creator Clip Studio sur cet ordinateur…</p>
+<p>Si rien ne se passe, copie le lien complet de cette page (barre d'adresse) et colle le dans l'onglet Analyse du robot, rubrique « La page de retour TikTok ne revient pas au robot ? ».</p>
+</main>
+<script>
+  // Page de retour de la connexion « TikTok API for Business » : renvoie le code au robot (port 8000,
+  // qui le fait suivre à l'espace qui a demandé la connexion). Aucune donnée n'est gardée ici.
+  if (location.search.indexOf("code=") >= 0 || location.search.indexOf("error=") >= 0) {
+    location.replace("http://localhost:8000/tiktok/business/callback/" + location.search);
+  } else {
+    document.getElementById("msg").textContent = "Aucun code de connexion dans le lien.";
+  }
+</script>
+</body>
+</html>
